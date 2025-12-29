@@ -1,94 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Vandora | Web Developer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <title>Vandora — Web Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="logo">VANDORA</div>
+    <a href="#contact" class="nav-btn">Contact</a>
+  </nav>
+
   <!-- HERO -->
-  <header class="hero">
-    <h1>VANDORA</h1>
-    <p>Clean & Responsive Websites for Modern Businesses</p>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Web Developer</h1>
+      <p>I build fast, clean & responsive websites for modern brands.</p>
 
-    <div class="hero-buttons">
-      <a href="#contact" class="btn">Hire Me</a>
+      <div class="actions">
+        <a href="#contact" class="btn primary">Hire Me</a>
 
-      <a href="mailto:contact.vandorahq@gmail.com?subject=Website%20Inquiry&body=Hi%20Vandora%2C"
-         class="btn btn-outline">
-        Email Me
-      </a>
+        <a
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=contact.vandorahq@gmail.com&su=Website%20Inquiry"
+          target="_blank"
+          rel="noopener"
+          class="btn secondary">
+          Email Me
+        </a>
+      </div>
     </div>
-  </header>
+  </section>
 
   <!-- ABOUT -->
   <section class="section">
-    <h2>About Me</h2>
-    <p>
-      I am a passionate web developer who builds clean, fast and
-      mobile-friendly websites using HTML, CSS and GitHub Pages.
-      I focus on simple design, good user experience and responsive layouts.
+    <h2>About</h2>
+    <p class="text">
+      I’m a web developer focused on creating professional, responsive
+      and user-friendly websites using modern HTML & CSS.
     </p>
   </section>
 
-  <!-- SKILLS -->
-  <section class="section light">
-    <h2>Skills</h2>
-    <div class="cards">
-      <div class="card">HTML5</div>
-      <div class="card">CSS3</div>
-      <div class="card">Responsive Design</div>
-      <div class="card">Git & GitHub</div>
-    </div>
-  </section>
+  <!-- SERVICES -->
+  <section class="section muted">
+    <h2>Services</h2>
 
-  <!-- PROJECTS -->
-  <section class="section">
-    <h2>Projects</h2>
-    <div class="cards">
-      <div class="card project">
-        <h3>Portfolio Website</h3>
-        <p>Personal portfolio built with HTML & CSS.</p>
-        <a href="#" target="_blank">Live Demo</a>
-      </div>
-
-      <div class="card project">
-        <h3>Landing Page</h3>
-        <p>Modern landing page design for businesses.</p>
-        <a href="#" target="_blank">Live Demo</a>
-      </div>
+    <div class="grid">
+      <div class="box">Landing Pages</div>
+      <div class="box">Portfolio Websites</div>
+      <div class="box">Business Websites</div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section class="section light" id="contact">
-    <h2>Contact Me</h2>
+  <section class="section" id="contact">
+    <h2>Contact</h2>
 
-    <p>
+    <p class="text">
       Email:
-      <a href="mailto:contact.vandorahq@gmail.com">
+      <a
+        href="https://mail.google.com/mail/?view=cm&fs=1&to=contact.vandorahq@gmail.com"
+        target="_blank"
+        rel="noopener">
         contact.vandorahq@gmail.com
       </a>
     </p>
 
-    <p>
+    <p class="text">
       GitHub:
-      <a href="https://github.com/KeshavRathore28" target="_blank">
+      <a href="https://github.com/KeshavRathore28" target="_blank" rel="noopener">
         github.com/KeshavRathore28
       </a>
     </p>
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    © 2025 Vandora. Built with ❤️ by Keshav
+  <footer class="footer">
+    © 2025 Vandora. All rights reserved.
   </footer>
 
 </body>
