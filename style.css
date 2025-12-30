@@ -1,8 +1,3 @@
-/* ===============================
-   VANDORA – LUXURY STABLE CSS
-   Future-proof & Clean
-================================ */
-
 /* RESET */
 * {
   margin: 0;
@@ -11,101 +6,122 @@
   font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* VARIABLES */
+/* COLORS */
 :root {
-  --maroon: #5a0f1b;
+  --maroon: #4b0e0e;
   --gold: #d4af37;
-  --dark: #111;
-  --light: #f8f6f3;
+  --dark: #1a1a1a;
+  --light: #ffffff;
 }
 
 /* BODY */
 body {
-  background-color: var(--light);
+  background: #fff;
   color: #222;
-  line-height: 1.6;
 }
 
-/* HEADER / NAVBAR */
-header {
-  background-color: var(--maroon);
-  padding: 20px 40px;
+/* NAVBAR */
+.navbar {
+  background: var(--maroon);
+  color: var(--gold);
+  padding: 18px 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-header h1 {
+.logo {
+  font-size: 26px;
+  font-weight: bold;
   color: var(--gold);
-  font-size: 28px;
-  letter-spacing: 2px;
 }
 
-nav a {
+.navbar nav a {
   color: var(--gold);
   margin-left: 25px;
   text-decoration: none;
   font-weight: 500;
 }
 
-nav a:hover {
+.navbar nav a:hover,
+.navbar nav a.active {
   text-decoration: underline;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero {
-  padding: 80px 40px;
-  text-align: left;
+  position: relative;
+  height: 70vh;
+  background: url("vandora-bloom-denim.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hero h2 {
-  font-size: 42px;
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(75, 14, 14, 0.75);
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  color: var(--gold);
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 56px;
   margin-bottom: 10px;
 }
 
-.hero p {
+.hero-content p {
   font-size: 18px;
-  color: #555;
-}
-
-.hero .btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 28px;
-  background: var(--maroon);
-  color: var(--gold);
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-}
-
-/* CATEGORY SECTION */
-.categories {
-  padding: 60px 40px;
-}
-
-.categories h3 {
-  font-size: 28px;
   margin-bottom: 25px;
 }
 
+.btn-primary {
+  background: var(--maroon);
+  color: var(--gold);
+  padding: 12px 30px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  border: 1px solid var(--gold);
+}
+
+.btn-primary:hover {
+  background: var(--gold);
+  color: var(--maroon);
+}
+
+/* CATEGORIES */
+.categories {
+  padding: 70px 60px;
+}
+
+.categories h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
 .category-grid {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
 }
 
 .category-card {
-  flex: 1;
-  min-width: 220px;
-  padding: 35px;
   border: 1px solid var(--gold);
-  border-radius: 10px;
+  padding: 40px;
+  border-radius: 14px;
+  transition: 0.3s;
 }
 
-.category-card h4 {
-  font-size: 20px;
-  margin-bottom: 10px;
+.category-card h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
 }
 
 .category-card a {
@@ -114,65 +130,16 @@ nav a:hover {
   text-decoration: none;
 }
 
-/* PRODUCT PAGE */
-.product {
-  display: flex;
-  gap: 50px;
-  padding: 60px 40px;
-  flex-wrap: wrap;
-}
-
-.product img {
-  width: 320px;
-  border-radius: 12px;
-}
-
-.product-details {
-  max-width: 420px;
-}
-
-.product-details h2 {
-  font-size: 32px;
-}
-
-.price {
-  font-size: 24px;
-  color: var(--maroon);
-  margin: 15px 0;
-}
-
-.buy-btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 14px 30px;
-  background: var(--maroon);
-  color: var(--gold);
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 /* FOOTER */
 footer {
-  background: var(--dark);
-  color: #aaa;
+  background: var(--maroon);
+  color: var(--gold);
   text-align: center;
-  padding: 25px;
+  padding: 18px;
   margin-top: 60px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .hero h2 {
-    font-size: 32px;
-  }
-
-  .product {
-    justify-content: center;
-  }
 }
