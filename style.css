@@ -1,26 +1,34 @@
-/* RESET */
+/* ===================================================
+   VANDORA – PERMANENT SAFE CSS
+   Edit freely inside SAFE ZONES only
+   =================================================== */
+
+/* ================= RESET (DO NOT TOUCH) ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* COLOR THEME */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #ffffff;
+  color: var(--maroon);
+}
+
+/* ================= THEME VARIABLES (SAFE TO EDIT) ================= */
 :root {
   --maroon: #4b0f0f;
   --dark-maroon: #2e0707;
   --gold: #d4af37;
   --light-gold: #f5e6b8;
+
+  /* future use */
+  --radius: 12px;
+  --transition: 0.3s ease;
 }
 
-/* BODY */
-body {
-  background: #fff;
-  color: var(--maroon);
-}
-
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 .navbar {
   background: var(--dark-maroon);
   padding: 18px 60px;
@@ -29,36 +37,34 @@ body {
   align-items: center;
 }
 
-.navbar h1 {
+.logo {
   color: var(--gold);
   font-size: 26px;
   letter-spacing: 2px;
 }
 
-.navbar ul {
+.nav-links {
   list-style: none;
   display: flex;
   gap: 25px;
 }
 
-.navbar ul li a {
+.nav-links a {
   text-decoration: none;
   color: var(--light-gold);
   font-size: 15px;
-  transition: 0.3s;
+  transition: var(--transition);
 }
 
-.navbar ul li a:hover {
+.nav-links a:hover {
   color: var(--gold);
 }
 
-/* HERO */
+/* ================= HERO SECTION ================= */
 .hero {
-  height: 80vh;
-  background: linear-gradient(
-      rgba(46, 7, 7, 0.85),
-      rgba(46, 7, 7, 0.85)
-    ),
+  min-height: 80vh;
+  background:
+    linear-gradient(rgba(46, 7, 7, 0.85), rgba(46, 7, 7, 0.85)),
     url("https://images.unsplash.com/photo-1521334884684-d80222895322");
   background-size: cover;
   background-position: center;
@@ -69,6 +75,7 @@ body {
 
 .hero-content {
   text-align: center;
+  padding: 20px;
 }
 
 .hero-content h2 {
@@ -83,7 +90,22 @@ body {
   font-size: 18px;
 }
 
-/* COLLECTION SECTION */
+.hero-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 35px;
+  border-radius: 50px;
+  background: var(--gold);
+  color: var(--dark-maroon);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.hero-btn:hover {
+  background: var(--light-gold);
+}
+
+/* ================= COLLECTIONS ================= */
 .collections {
   padding: 90px 20px;
   text-align: center;
@@ -108,7 +130,7 @@ body {
   text-decoration: none;
   color: var(--maroon);
   font-size: 18px;
-  transition: 0.3s;
+  transition: var(--transition);
 }
 
 .collection-card:hover {
@@ -117,7 +139,7 @@ body {
   transform: translateY(-6px);
 }
 
-/* PRODUCTS */
+/* ================= PRODUCTS (SAFE ZONE) ================= */
 .product-grid {
   display: flex;
   justify-content: center;
@@ -130,7 +152,7 @@ body {
   width: 250px;
   border: 1px solid var(--gold);
   padding: 20px;
-  border-radius: 12px;
+  border-radius: var(--radius);
   text-align: center;
 }
 
@@ -138,7 +160,7 @@ body {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: var(--radius);
 }
 
 .price {
@@ -153,9 +175,14 @@ body {
   padding: 10px 15px;
   border: none;
   cursor: pointer;
+  transition: var(--transition);
 }
 
-/* CHECKOUT */
+.product-card button:hover {
+  opacity: 0.85;
+}
+
+/* ================= CHECKOUT ================= */
 .checkout {
   max-width: 400px;
   margin: 80px auto;
@@ -163,7 +190,7 @@ body {
   border: 1px solid var(--gold);
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer {
   background: var(--dark-maroon);
   color: var(--gold);
@@ -172,14 +199,15 @@ footer {
   margin-top: 80px;
 }
 
-/* RESPONSIVE */
+/* ================= RESPONSIVE (DO NOT DELETE) ================= */
 @media (max-width: 768px) {
-  .hero-content h2 {
-    font-size: 40px;
-  }
-
   .navbar {
     flex-direction: column;
     gap: 10px;
+    padding: 20px;
+  }
+
+  .hero-content h2 {
+    font-size: 40px;
   }
 }
