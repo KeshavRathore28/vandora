@@ -1,88 +1,120 @@
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
+/* COLORS */
+:root {
+  --maroon: #4b0f0f;
+  --dark-maroon: #2e0707;
+  --gold: #d4af37;
+  --light-gold: #f5e6b8;
+}
+
+/* BODY */
 body {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #fff;
-}
-
-/* Header */
-.hero {
-  text-align: center;
-  padding: 80px 20px 50px;
-}
-
-.hero h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  opacity: 0.85;
-}
-
-/* Contact Card */
-.contact-card {
-  max-width: 500px;
   background: #fff;
-  color: #333;
-  margin: auto;
-  padding: 40px;
-  border-radius: 14px;
-  text-align: center;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+  color: var(--maroon);
 }
 
-.contact-card h2 {
-  font-size: 28px;
-  margin-bottom: 15px;
-}
-
-.contact-card p {
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 25px;
-  color: #555;
-}
-
-/* Email Box */
-.email-box {
+/* HERO */
+.hero {
+  height: 80vh;
+  background: linear-gradient(
+      rgba(46, 7, 7, 0.85),
+      rgba(46, 7, 7, 0.85)
+    ),
+    url("https://images.unsplash.com/photo-1521334884684-d80222895322");
+  background-size: cover;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  background: #f4f4f4;
-  padding: 12px;
-  border-radius: 8px;
-  margin-bottom: 25px;
-  font-size: 16px;
 }
 
-/* Gmail Button */
-.gmail-btn {
-  display: inline-block;
-  padding: 14px 25px;
-  background: #000;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 16px;
-  transition: 0.3s;
-}
-
-.gmail-btn:hover {
-  background: #333;
-  transform: translateY(-2px);
-}
-
-/* Footer */
-footer {
+.hero-content {
   text-align: center;
-  padding: 30px;
-  opacity: 0.8;
+}
+
+.hero-content h1 {
+  font-size: 64px;
+  letter-spacing: 4px;
+  color: var(--gold);
+}
+
+.hero-content p {
+  margin-top: 15px;
+  font-size: 18px;
+  color: var(--light-gold);
+  letter-spacing: 1px;
+}
+
+/* COLLECTIONS SECTION */
+.collections {
+  padding: 90px 20px;
+  text-align: center;
+}
+
+.collections h2 {
+  font-size: 38px;
+  color: var(--maroon);
+}
+
+.subtitle {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  color: #7a3b3b;
+  font-size: 16px;
+}
+
+/* COLLECTION GRID */
+.collection-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* COLLECTION CARD */
+.collection-card {
+  text-decoration: none;
+  min-width: 220px;
+  padding: 22px 40px;
+  border: 2px solid var(--gold);
+  border-radius: 50px;
+  font-size: 18px;
+  color: var(--maroon);
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.collection-card:hover {
+  background: var(--gold);
+  color: var(--dark-maroon);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* FOOTER */
+.footer {
+  background: var(--dark-maroon);
+  color: var(--gold);
+  text-align: center;
+  padding: 25px;
+  margin-top: 60px;
+  font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 46px;
+  }
+
+  .collections h2 {
+    font-size: 30px;
+  }
 }
