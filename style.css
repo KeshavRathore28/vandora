@@ -1,131 +1,178 @@
+/* ===============================
+   VANDORA – LUXURY STABLE CSS
+   Future-proof & Clean
+================================ */
+
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
+/* VARIABLES */
+:root {
+  --maroon: #5a0f1b;
+  --gold: #d4af37;
+  --dark: #111;
+  --light: #f8f6f3;
+}
+
+/* BODY */
 body {
-  background: #fff;
+  background-color: var(--light);
   color: #222;
+  line-height: 1.6;
 }
 
-/* NAVBAR */
-.navbar {
-  background: #4b0f0f;
-  color: #f5c26b;
-  padding: 18px 60px;
+/* HEADER / NAVBAR */
+header {
+  background-color: var(--maroon);
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
+header h1 {
+  color: var(--gold);
+  font-size: 28px;
+  letter-spacing: 2px;
 }
 
-.navbar a {
-  color: #f5c26b;
-  text-decoration: none;
+nav a {
+  color: var(--gold);
   margin-left: 25px;
+  text-decoration: none;
   font-weight: 500;
 }
 
-.navbar a.active,
-.navbar a:hover {
+nav a:hover {
   text-decoration: underline;
 }
 
-/* HERO */
+/* HERO SECTION */
 .hero {
-  padding: 90px 60px;
-  background: #fff;
+  padding: 80px 40px;
+  text-align: left;
 }
 
-.hero h1 {
+.hero h2 {
   font-size: 42px;
   margin-bottom: 10px;
 }
 
 .hero p {
   font-size: 18px;
-  margin-bottom: 25px;
   color: #555;
 }
 
-.btn {
-  background: #4b0f0f;
-  color: #f5c26b;
-  padding: 12px 30px;
+.hero .btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  background: var(--maroon);
+  color: var(--gold);
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-weight: bold;
 }
 
-/* CATEGORIES */
+/* CATEGORY SECTION */
 .categories {
-  padding: 60px;
+  padding: 60px 40px;
 }
 
-.categories h2 {
-  margin-bottom: 30px;
+.categories h3 {
+  font-size: 28px;
+  margin-bottom: 25px;
 }
 
-.cards {
+.category-grid {
   display: flex;
-  gap: 25px;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.card {
+.category-card {
   flex: 1;
-  border: 1px solid #f5c26b;
-  padding: 40px;
+  min-width: 220px;
+  padding: 35px;
+  border: 1px solid var(--gold);
   border-radius: 10px;
 }
 
-.card a,
-.card span {
-  color: #4b0f0f;
-  font-weight: 500;
+.category-card h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.category-card a {
+  color: var(--maroon);
+  font-weight: bold;
+  text-decoration: none;
 }
 
 /* PRODUCT PAGE */
 .product {
   display: flex;
-  gap: 60px;
-  padding: 70px;
+  gap: 50px;
+  padding: 60px 40px;
+  flex-wrap: wrap;
 }
 
 .product img {
-  width: 380px;
+  width: 320px;
   border-radius: 12px;
 }
 
-.product h1 {
-  font-size: 30px;
-  margin-bottom: 10px;
+.product-details {
+  max-width: 420px;
+}
+
+.product-details h2 {
+  font-size: 32px;
 }
 
 .price {
-  font-size: 22px;
-  color: #4b0f0f;
+  font-size: 24px;
+  color: var(--maroon);
   margin: 15px 0;
 }
 
-.buy {
+.buy-btn {
   display: inline-block;
-  background: #4b0f0f;
-  color: #f5c26b;
-  padding: 14px 35px;
-  text-decoration: none;
   margin-top: 20px;
+  padding: 14px 30px;
+  background: var(--maroon);
+  color: var(--gold);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
 }
 
 /* FOOTER */
 footer {
-  background: #4b0f0f;
-  color: #f5c26b;
+  background: var(--dark);
+  color: #aaa;
   text-align: center;
-  padding: 18px;
+  padding: 25px;
   margin-top: 60px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  .product {
+    justify-content: center;
+  }
 }
