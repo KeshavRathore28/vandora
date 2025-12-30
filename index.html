@@ -2,89 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Vandora — Web Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
+  <title>Vandora | Contact</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="logo">VANDORA</div>
-    <a href="#contact" class="nav-btn">Contact</a>
-  </nav>
+<header>
+  <h1>Vandora</h1>
+  <p>Official Website</p>
+</header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Web Developer</h1>
-      <p>I build fast, clean & responsive websites for modern brands.</p>
+<section class="contact-box">
+  <h2>Contact Us</h2>
+  <p>Send us a message and we’ll get back to you</p>
 
-      <div class="actions">
-        <a href="#contact" class="btn primary">Hire Me</a>
+  <form action="https://formspree.io/f/xoqgkabc" method="POST">
+    
+    <input type="text" name="name" placeholder="Your Name" required>
 
-        <a
-          href="https://mail.google.com/mail/?view=cm&fs=1&to=contact.vandorahq@gmail.com&su=Website%20Inquiry"
-          target="_blank"
-          rel="noopener"
-          class="btn secondary">
-          Email Me
-        </a>
-      </div>
-    </div>
-  </section>
+    <input type="email" name="email" placeholder="Your Email" required>
 
-  <!-- ABOUT -->
-  <section class="section">
-    <h2>About</h2>
-    <p class="text">
-      I’m a web developer focused on creating professional, responsive
-      and user-friendly websites using modern HTML & CSS.
-    </p>
-  </section>
+    <textarea name="message" placeholder="Your Message" required></textarea>
 
-  <!-- SERVICES -->
-  <section class="section muted">
-    <h2>Services</h2>
+    <!-- Auto Reply -->
+    <input type="hidden" name="_autoresponse"
+      value="Thank you for contacting Vandora. We have received your message and will reply shortly.">
 
-    <div class="grid">
-      <div class="box">Landing Pages</div>
-      <div class="box">Portfolio Websites</div>
-      <div class="box">Business Websites</div>
-    </div>
-  </section>
+    <!-- Redirect to Thank You Page -->
+    <input type="hidden" name="_next" value="thankyou.html">
 
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <h2>Contact</h2>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
 
-    <p class="text">
-      Email:
-      <a
-        href="https://mail.google.com/mail/?view=cm&fs=1&to=contact.vandorahq@gmail.com"
-        target="_blank"
-        rel="noopener">
-        contact.vandorahq@gmail.com
-      </a>
-    </p>
-
-    <p class="text">
-      GitHub:
-      <a href="https://github.com/KeshavRathore28" target="_blank" rel="noopener">
-        github.com/KeshavRathore28
-      </a>
-    </p>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    © 2025 Vandora. All rights reserved.
-  </footer>
+<footer>
+  © 2025 Vandora. All rights reserved.
+</footer>
 
 </body>
 </html>
