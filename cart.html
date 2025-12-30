@@ -1,28 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Cart | Vandora</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./style.css" />
 </head>
+
 <body>
 
-<nav class="navbar">
-  <h1 class="logo">Vandora</h1>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="cart.html" class="active">Cart</a></li>
-  </ul>
-</nav>
+  <!-- ================= NAVBAR ================= -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo fade-in">Vandora</h1>
 
-<section class="section">
-  <h2>Your Cart</h2>
-  <div id="cart-items"></div>
-  <h3 id="total"></h3>
+      <ul class="nav-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./accessories.html">Accessories</a></li>
+        <li><a href="./wear.html">Wear</a></li>
+        <li><a href="./bags.html">Bags</a></li>
+        <li><a href="./cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
-</section>
+  <!-- ================= CART SECTION ================= -->
+  <main>
+    <section class="cart-container fade-in">
+      <h2>Your Cart</h2>
 
-<script src="script.js"></script>
+      <!-- CART ITEMS AUTO LOAD HERE -->
+      <div id="cart-items"></div>
+
+      <!-- TOTAL -->
+      <p id="total" class="cart-total"></p>
+
+      <!-- PLACE ORDER -->
+      <button class="cart-btn" onclick="placeOrder()">
+        Place Order
+      </button>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="fade-in-slow">
+    <p>© 2025 Vandora. All rights reserved.</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script src="./script.js"></script>
 </body>
 </html>
