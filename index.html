@@ -3,37 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vandora | Contact</title>
+  <title>Contact | Vandora</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
+<header class="hero">
   <h1>Vandora</h1>
-  <p>Official Website</p>
+  <p>Let’s connect professionally</p>
 </header>
 
-<section class="contact-box">
+<section class="contact-card">
   <h2>Contact Us</h2>
-  <p>Send us a message and we’ll get back to you</p>
+  <p>
+    For business inquiries, collaborations, or support,  
+    reach us directly on Gmail.
+  </p>
 
-  <form action="https://formspree.io/f/xoqgkabc" method="POST">
-    
-    <input type="text" name="name" placeholder="Your Name" required>
+  <div class="email-box">
+    <span>📧</span>
+    <strong>contact.vandorahq@gmail.com</strong>
+  </div>
 
-    <input type="email" name="email" placeholder="Your Email" required>
-
-    <textarea name="message" placeholder="Your Message" required></textarea>
-
-    <!-- Auto Reply -->
-    <input type="hidden" name="_autoresponse"
-      value="Thank you for contacting Vandora. We have received your message and will reply shortly.">
-
-    <!-- Redirect to Thank You Page -->
-    <input type="hidden" name="_next" value="thankyou.html">
-
-    <button type="submit">Send Message</button>
-  </form>
+  <a 
+    href="https://mail.google.com/mail/?view=cm&to=contact.vandorahq@gmail.com"
+    target="_blank"
+    class="gmail-btn">
+    Open in Gmail
+  </a>
 </section>
 
 <footer>
