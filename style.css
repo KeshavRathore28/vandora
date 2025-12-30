@@ -1,9 +1,8 @@
 /* ===================================================
-   VANDORA – PERMANENT SAFE CSS
-   Edit freely inside SAFE ZONES only
+   VANDORA – PERMANENT SAFE CSS (FINAL)
    =================================================== */
 
-/* ================= RESET (DO NOT TOUCH) ================= */
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -16,14 +15,12 @@ body {
   color: var(--maroon);
 }
 
-/* ================= THEME VARIABLES (SAFE TO EDIT) ================= */
+/* ================= THEME VARIABLES ================= */
 :root {
   --maroon: #4b0f0f;
   --dark-maroon: #2e0707;
   --gold: #d4af37;
   --light-gold: #f5e6b8;
-
-  /* future use */
   --radius: 12px;
   --transition: 0.3s ease;
 }
@@ -60,11 +57,10 @@ body {
   color: var(--gold);
 }
 
-/* ================= HERO SECTION ================= */
+/* ================= HERO ================= */
 .hero {
   min-height: 80vh;
-  background:
-    linear-gradient(rgba(46, 7, 7, 0.85), rgba(46, 7, 7, 0.85)),
+  background: linear-gradient(rgba(46,7,7,0.85), rgba(46,7,7,0.85)),
     url("https://images.unsplash.com/photo-1521334884684-d80222895322");
   background-size: cover;
   background-position: center;
@@ -139,7 +135,7 @@ body {
   transform: translateY(-6px);
 }
 
-/* ================= PRODUCTS (SAFE ZONE) ================= */
+/* ================= PRODUCTS ================= */
 .product-grid {
   display: flex;
   justify-content: center;
@@ -182,6 +178,49 @@ body {
   opacity: 0.85;
 }
 
+/* ================= CART (NEW – PROFESSIONAL) ================= */
+.cart-container {
+  max-width: 700px;
+  margin: 80px auto;
+  padding: 40px;
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+}
+
+.cart-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-total {
+  margin-top: 25px;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--gold);
+}
+
+.cart-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 30px;
+  background: var(--dark-maroon);
+  color: var(--gold);
+  text-decoration: none;
+  border-radius: 50px;
+  transition: var(--transition);
+}
+
+.cart-btn:hover {
+  background: var(--maroon);
+}
+
 /* ================= CHECKOUT ================= */
 .checkout {
   max-width: 400px;
@@ -199,7 +238,7 @@ footer {
   margin-top: 80px;
 }
 
-/* ================= RESPONSIVE (DO NOT DELETE) ================= */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -212,22 +251,18 @@ footer {
   }
 }
 
-/* ================= LUXURY FADE IN ANIMATION ================= */
-
-/* default hidden state */
+/* ================= LUXURY FADE IN ================= */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 1s ease, transform 1s ease;
 }
 
-/* visible state */
 .fade-in.show {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* slow luxury variant */
 .fade-in-slow {
   opacity: 0;
   transform: translateY(40px);
