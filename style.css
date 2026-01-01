@@ -46,11 +46,37 @@ body {
   gap: 25px;
 }
 
+/* ===== LUXURY NAV LINKS ===== */
 .nav-links a {
+  position: relative;
   text-decoration: none;
   color: var(--light-gold);
-  font-size: 15px;
-  transition: var(--transition);
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  padding: 8px 4px;
+  transition: color 0.4s ease;
+}
+
+/* underline animation */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: all 0.4s ease;
+  transform: translateX(-50%);
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 .nav-links a:hover {
