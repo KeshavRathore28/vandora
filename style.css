@@ -27,7 +27,12 @@ body {
 
 /* ================= NAVBAR ================= */
 .navbar {
-  background: var(--dark-maroon);
+  background: linear-gradient(
+  90deg,
+  #2e0707,
+  #3a0b0b,
+  #2e0707
+);
   padding: 18px 60px;
   display: flex;
   justify-content: space-between;
