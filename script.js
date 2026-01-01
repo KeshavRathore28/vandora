@@ -1,6 +1,6 @@
 /* =====================================================
-   VANDORA – FINAL SCRIPT
-   Cart with Image + Quantity + Cart Count + Fade-in
+   VANDORA – FINAL SCRIPT (PRO LEVEL)
+   Cart + Image + Badge + Fade-in
    ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -15,7 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ================= ADD TO CART ================= */
-  // image = image url
+  // CALL FORMAT:
+  // addToCart("Product Name", price, "image-url")
+
   window.addToCart = function (name, price, image) {
     const existing = cart.find(item => item.name === name);
 
@@ -23,9 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
       existing.qty += 1;
     } else {
       cart.push({
-        name,
-        price,
-        image,
+        name: name,
+        price: price,
+        image: image,
         qty: 1
       });
     }
@@ -34,14 +36,15 @@ document.addEventListener("DOMContentLoaded", () => {
     alert("Added to cart");
   };
 
-  /* ================= CART COUNT (NAVBAR) ================= */
-  function updateCartCount() {
-    const countEl = document.getElementById("cart-count");
-    if (!countEl) return;
+  /* ================= CART COUNT BADGE ================= */
 
-    let count = 0;
-    cart.forEach(item => count += item.qty);
-    countEl.innerText = count;
+  function updateCartCount() {
+    const badge = document.getElementById("cart-count");
+    if (!badge) return;
+
+    const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+    badge.innerText = totalQty;
+    badge.style.display = totalQty > 0 ? "flex" : "none";
   }
 
   updateCartCount();
@@ -64,13 +67,20 @@ document.addEventListener("DOMContentLoaded", () => {
       div.className = "cart-item";
 
       div.innerHTML = `
-        <img src="${item.image}" alt="${item.name}">
-        <div class="cart-info">
-          <h4>${item.name}</h4>
-          <span>Qty: ${item.qty}</span>
+        <div style="display:flex; align-items:center; gap:15px;">
+          <img src="${item.image}" alt="${item.name}"
+               style="width:60px; height:60px; object-fit:cover; border-radius:8px;">
+          <div>
+            <strong>${item.name}</strong><br>
+            <small>Qty: ${item.qty}</small>
+          </div>
         </div>
-        <div class="cart-price">₹${item.price * item.qty}</div>
-        <button onclick="removeItem(${index})">✕</button>
+
+        <div>
+          ₹${item.price * item.qty}
+          <button onclick="removeItem(${index})"
+            style="margin-left:15px; cursor:pointer;">✕</button>
+        </div>
       `;
 
       cartItemsEl.appendChild(div);
@@ -100,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (fadeElements.length > 0) {
     const observer = new IntersectionObserver(
-      entries => {
+      (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
