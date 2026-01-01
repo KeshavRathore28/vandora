@@ -27,7 +27,15 @@
         <li><a href="./accessories.html">Accessories</a></li>
         <li><a href="./wear.html">Wear</a></li>
         <li><a href="./bags.html">Bags</a></li>
-        <li><a href="./cart.html">Cart</a></li>
+
+        <!-- CART WITH BADGE -->
+        <li class="cart-link">
+          <a href="./cart.html">
+            Cart
+            <span id="cart-count" class="cart-badge">0</span>
+          </a>
+        </li>
+
         <li><a href="./contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -52,30 +60,31 @@
       <h3>Our Collections</h3>
 
       <div class="collection-grid">
-
-        <a href="./accessories.html" class="collection-card">
-          <span>Accessories</span>
-        </a>
-
-        <a href="./wear.html" class="collection-card">
-          <span>Wear</span>
-        </a>
-
-        <a href="./bags.html" class="collection-card">
-          <span>Bags</span>
-        </a>
-
+        <a href="./accessories.html" class="collection-card"><span>Accessories</span></a>
+        <a href="./wear.html" class="collection-card"><span>Wear</span></a>
+        <a href="./bags.html" class="collection-card"><span>Bags</span></a>
       </div>
     </section>
 
-    <!-- ================= SAFE FUTURE SECTION ================= -->
-    <!-- YAHAN AAP KUCH BHI ADD KAR SAKTE HO – KUCH DELETE NAHI HOGA -->
+    <!-- ================= SAMPLE PRODUCT (ADD TO CART DEMO) ================= -->
+    <!-- Isi pattern pe future me products add karna -->
 
-    <!--
-    <section class="new-section fade-in">
-      <h3>New Arrivals</h3>
+    <section class="product-grid fade-in">
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Luxury Watch">
+        <h4>Luxury Watch</h4>
+        <p class="price">₹4999</p>
+        <button onclick="addToCart(
+          'Luxury Watch',
+          4999,
+          'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f'
+        )">
+          Add to Cart
+        </button>
+      </div>
+
     </section>
-    -->
 
   </main>
 
