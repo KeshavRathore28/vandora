@@ -1,19 +1,40 @@
 /* =====================================================
-   VANDORA – FINAL PERMANENT SCRIPT (FULL)
-   Cart + Quantity + Image + Badge + Fade-in
+   VANDORA – FINAL SCRIPT
+   Cart with Image + Quantity + Cart Count + Fade-in
    ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ================= CART SYSTEM ================= */
+  /* ================= CART DATA ================= */
 
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   function saveCart() {
     localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
   }
 
-  /* -------- CART COUNT BADGE -------- */
+  /* ================= ADD TO CART ================= */
+  // image = image url
+  window.addToCart = function (name, price, image) {
+    const existing = cart.find(item => item.name === name);
+
+    if (existing) {
+      existing.qty += 1;
+    } else {
+      cart.push({
+        name,
+        price,
+        image,
+        qty: 1
+      });
+    }
+
+    saveCart();
+    alert("Added to cart");
+  };
+
+  /* ================= CART COUNT (NAVBAR) ================= */
   function updateCartCount() {
     const countEl = document.getElementById("cart-count");
     if (!countEl) return;
@@ -23,35 +44,18 @@ document.addEventListener("DOMContentLoaded", () => {
     countEl.innerText = count;
   }
 
-  /* -------- ADD TO CART -------- */
-  window.addToCart = function (name, price, image) {
-    const existing = cart.find(item => item.name === name);
+  updateCartCount();
 
-    if (existing) {
-      existing.qty += 1;
-    } else {
-      cart.push({
-        name: name,
-        price: price,
-        image: image,
-        qty: 1
-      });
-    }
-
-    saveCart();
-    updateCartCount();
-    alert("Added to cart");
-  };
+  /* ================= RENDER CART PAGE ================= */
 
   const cartItemsEl = document.getElementById("cart-items");
   const totalEl = document.getElementById("total");
 
-  /* -------- RENDER CART -------- */
   function renderCart() {
     if (!cartItemsEl || !totalEl) return;
 
-    let total = 0;
     cartItemsEl.innerHTML = "";
+    let total = 0;
 
     cart.forEach((item, index) => {
       total += item.price * item.qty;
@@ -60,22 +64,13 @@ document.addEventListener("DOMContentLoaded", () => {
       div.className = "cart-item";
 
       div.innerHTML = `
-        <img src="${item.image}" alt="${item.name}" class="cart-img">
-
+        <img src="${item.image}" alt="${item.name}">
         <div class="cart-info">
-          <p class="cart-name">${item.name}</p>
-
-          <div class="qty-box">
-            <button onclick="decreaseQty(${index})">−</button>
-            <span>${item.qty}</span>
-            <button onclick="increaseQty(${index})">+</button>
-          </div>
+          <h4>${item.name}</h4>
+          <span>Qty: ${item.qty}</span>
         </div>
-
-        <div class="cart-right">
-          <span class="cart-price">₹${item.price * item.qty}</span>
-          <button class="remove-btn" onclick="removeItem(${index})">✕</button>
-        </div>
+        <div class="cart-price">₹${item.price * item.qty}</div>
+        <button onclick="removeItem(${index})">✕</button>
       `;
 
       cartItemsEl.appendChild(div);
@@ -84,58 +79,36 @@ document.addEventListener("DOMContentLoaded", () => {
     totalEl.innerText = "Total: ₹" + total;
   }
 
-  /* -------- QUANTITY CONTROLS -------- */
-  window.increaseQty = function (index) {
-    cart[index].qty += 1;
-    saveCart();
-    renderCart();
-    updateCartCount();
-  };
-
-  window.decreaseQty = function (index) {
-    cart[index].qty -= 1;
-
-    if (cart[index].qty <= 0) {
-      cart.splice(index, 1);
-    }
-
-    saveCart();
-    renderCart();
-    updateCartCount();
-  };
-
-  /* -------- REMOVE ITEM -------- */
   window.removeItem = function (index) {
     cart.splice(index, 1);
     saveCart();
     renderCart();
-    updateCartCount();
   };
 
-  /* -------- PLACE ORDER -------- */
   window.placeOrder = function () {
     alert("Order placed successfully!");
     cart = [];
     saveCart();
     renderCart();
-    updateCartCount();
   };
 
   renderCart();
-  updateCartCount();
 
   /* ================= LUXURY FADE-IN ================= */
 
   const fadeElements = document.querySelectorAll(".fade-in, .fade-in-slow");
 
   if (fadeElements.length > 0) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        }
-      });
-    }, { threshold: 0.2 });
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
 
     fadeElements.forEach(el => observer.observe(el));
   }
