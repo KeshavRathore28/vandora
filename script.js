@@ -1,6 +1,6 @@
 /* =====================================================
-   VANDORA – FINAL PERMANENT SCRIPT
-   Cart + Luxury Fade-in (Stable & Professional)
+   VANDORA – FINAL PERMANENT SCRIPT (FULL)
+   Cart + Quantity + Image + Badge + Fade-in
    ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -13,22 +13,40 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }
 
-  window.addToCart = function (name, price) {
+  /* -------- CART COUNT BADGE -------- */
+  function updateCartCount() {
+    const countEl = document.getElementById("cart-count");
+    if (!countEl) return;
+
+    let count = 0;
+    cart.forEach(item => count += item.qty);
+    countEl.innerText = count;
+  }
+
+  /* -------- ADD TO CART -------- */
+  window.addToCart = function (name, price, image) {
     const existing = cart.find(item => item.name === name);
 
     if (existing) {
       existing.qty += 1;
     } else {
-      cart.push({ name, price, qty: 1 });
+      cart.push({
+        name: name,
+        price: price,
+        image: image,
+        qty: 1
+      });
     }
 
     saveCart();
+    updateCartCount();
     alert("Added to cart");
   };
 
   const cartItemsEl = document.getElementById("cart-items");
   const totalEl = document.getElementById("total");
 
+  /* -------- RENDER CART -------- */
   function renderCart() {
     if (!cartItemsEl || !totalEl) return;
 
@@ -42,9 +60,22 @@ document.addEventListener("DOMContentLoaded", () => {
       div.className = "cart-item";
 
       div.innerHTML = `
-        <span>${item.name} × ${item.qty}</span>
-        <span>₹${item.price * item.qty}</span>
-        <button onclick="removeItem(${index})">✕</button>
+        <img src="${item.image}" alt="${item.name}" class="cart-img">
+
+        <div class="cart-info">
+          <p class="cart-name">${item.name}</p>
+
+          <div class="qty-box">
+            <button onclick="decreaseQty(${index})">−</button>
+            <span>${item.qty}</span>
+            <button onclick="increaseQty(${index})">+</button>
+          </div>
+        </div>
+
+        <div class="cart-right">
+          <span class="cart-price">₹${item.price * item.qty}</span>
+          <button class="remove-btn" onclick="removeItem(${index})">✕</button>
+        </div>
       `;
 
       cartItemsEl.appendChild(div);
@@ -53,20 +84,45 @@ document.addEventListener("DOMContentLoaded", () => {
     totalEl.innerText = "Total: ₹" + total;
   }
 
+  /* -------- QUANTITY CONTROLS -------- */
+  window.increaseQty = function (index) {
+    cart[index].qty += 1;
+    saveCart();
+    renderCart();
+    updateCartCount();
+  };
+
+  window.decreaseQty = function (index) {
+    cart[index].qty -= 1;
+
+    if (cart[index].qty <= 0) {
+      cart.splice(index, 1);
+    }
+
+    saveCart();
+    renderCart();
+    updateCartCount();
+  };
+
+  /* -------- REMOVE ITEM -------- */
   window.removeItem = function (index) {
     cart.splice(index, 1);
     saveCart();
     renderCart();
+    updateCartCount();
   };
 
+  /* -------- PLACE ORDER -------- */
   window.placeOrder = function () {
     alert("Order placed successfully!");
     cart = [];
     saveCart();
     renderCart();
+    updateCartCount();
   };
 
   renderCart();
+  updateCartCount();
 
   /* ================= LUXURY FADE-IN ================= */
 
