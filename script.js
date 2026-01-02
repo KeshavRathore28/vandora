@@ -1,5 +1,5 @@
 /* =====================================================
-   VANDORA – FINAL SCRIPT (PRO + LUXURY)
+   VANDORA – FINAL SCRIPT (PRO + LUXURY + STEP 5)
    Cart + Image + Badge + Checkout + Payment + Fade-in
    ===================================================== */
 
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
       div.className = "cart-item";
 
       div.innerHTML = `
-        <div class="cart-left">
+        <div class="cart-left" style="display:flex; gap:15px; align-items:center;">
           <img src="${item.image}" alt="${item.name}">
           <div>
             <strong>${item.name}</strong><br>
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderCart();
 
-  /* ================= PLACE ORDER → CHECKOUT ================= */
+  /* ================= PLACE ORDER ================= */
 
   window.placeOrder = function () {
     if (cart.length === 0) {
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "checkout.html";
   };
 
-  /* ================= CHECKOUT FORM + PAYMENT (STEP 3) ================= */
+  /* ================= CHECKOUT FORM SUBMIT (STEP 5) ================= */
 
   const checkoutForm = document.getElementById("checkout-form");
 
@@ -110,32 +110,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const paymentMethod = document.querySelector(
         'input[name="payment"]:checked'
-      )?.value || "cod";
+      ).value;
 
       const orderData = {
         customer: {
           name: document.getElementById("name").value,
           phone: document.getElementById("phone").value,
           address: document.getElementById("address").value,
+          city: document.getElementById("city").value,
+          pincode: document.getElementById("pincode").value,
           landmark: document.getElementById("landmark").value
         },
         payment: paymentMethod,
-        cart: cart,
-        orderDate: new Date().toISOString()
+        items: cart,
+        orderDate: new Date().toLocaleString()
       };
 
       localStorage.setItem("orderDetails", JSON.stringify(orderData));
 
       cart = [];
       saveCart();
-
-      if (paymentMethod === "cod") {
-        alert("Order placed with Cash on Delivery");
-      } else if (paymentMethod === "upi") {
-        alert("UPI payment selected (demo)");
-      } else {
-        alert("Card payment selected (demo)");
-      }
 
       window.location.href = "thankyou.html";
     });
