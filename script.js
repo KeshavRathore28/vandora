@@ -1,6 +1,6 @@
 /* =====================================================
    VANDORA – FINAL SCRIPT (PRO + LUXURY)
-   Cart + Image + Badge + Checkout + Fade-in
+   Cart + Image + Badge + Checkout + Payment + Fade-in
    ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -97,11 +97,10 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("Your cart is empty");
       return;
     }
-
     window.location.href = "checkout.html";
   };
 
-  /* ================= CHECKOUT FORM SUBMIT ================= */
+  /* ================= CHECKOUT FORM + PAYMENT (STEP 3) ================= */
 
   const checkoutForm = document.getElementById("checkout-form");
 
@@ -109,18 +108,34 @@ document.addEventListener("DOMContentLoaded", () => {
     checkoutForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
+      const paymentMethod = document.querySelector(
+        'input[name="payment"]:checked'
+      )?.value || "cod";
+
       const orderData = {
-        name: document.getElementById("name").value,
-        phone: document.getElementById("phone").value,
-        address: document.getElementById("address").value,
-        landmark: document.getElementById("landmark").value,
-        cart: cart
+        customer: {
+          name: document.getElementById("name").value,
+          phone: document.getElementById("phone").value,
+          address: document.getElementById("address").value,
+          landmark: document.getElementById("landmark").value
+        },
+        payment: paymentMethod,
+        cart: cart,
+        orderDate: new Date().toISOString()
       };
 
       localStorage.setItem("orderDetails", JSON.stringify(orderData));
 
       cart = [];
       saveCart();
+
+      if (paymentMethod === "cod") {
+        alert("Order placed with Cash on Delivery");
+      } else if (paymentMethod === "upi") {
+        alert("UPI payment selected (demo)");
+      } else {
+        alert("Card payment selected (demo)");
+      }
 
       window.location.href = "thankyou.html";
     });
