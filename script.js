@@ -151,4 +151,54 @@ document.addEventListener("DOMContentLoaded", () => {
     fadeElements.forEach(el => observer.observe(el));
   }
 
+     /* ================= THANK YOU PAGE ================= */
+
+  const orderData = JSON.parse(localStorage.getItem("orderDetails"));
+
+  if (orderData && document.getElementById("customer-details")) {
+
+    const customer = orderData.customer;
+
+    document.getElementById("customer-details").innerHTML = `
+      <strong>${customer.name}</strong><br>
+      ${customer.address}<br>
+      ${customer.city} - ${customer.pincode}<br>
+      Phone: ${customer.phone}<br>
+      Landmark: ${customer.landmark || "N/A"}
+    `;
+
+    const itemsContainer = document.getElementById("order-items");
+    let total = 0;
+
+    orderData.items.forEach(item => {
+      total += item.price * item.qty;
+
+      const div = document.createElement("div");
+      div.className = "cart-item";
+
+      div.innerHTML = `
+        <img src="${item.image}">
+        <div class="cart-info">
+          <h4>${item.name}</h4>
+          <span>Qty: ${item.qty}</span>
+        </div>
+        <div class="cart-price">
+          ₹${item.price * item.qty}
+        </div>
+      `;
+
+      itemsContainer.appendChild(div);
+    });
+
+    document.getElementById("order-total").innerText =
+      "Total Paid: ₹" + total;
+
+    const paymentText =
+      orderData.payment === "cod" ? "Cash on Delivery" :
+      orderData.payment === "upi" ? "UPI Payment" :
+      "Card Payment";
+
+    document.getElementById("payment-method").innerText =
+      "Payment Method: " + paymentText;
+  }
 });
