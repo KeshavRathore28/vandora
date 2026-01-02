@@ -3,41 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <title>Accessories | Vandora</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<nav class="navbar">
-  <h1 class="logo">Vandora</h1>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a class="active" href="accessories.html">Accessories</a></li>
-    <li><a href="wear.html">Wear</a></li>
-    <li><a href="bags.html">Bags</a></li>
-    <li><a href="cart.html">Cart 🛒</a></li>
-  </ul>
-</nav>
+  <!-- ================= NAVBAR ================= -->
+  <header class="fade-in">
+    <nav class="navbar">
+      <h1 class="logo">Vandora</h1>
 
-<section class="section">
-  <h2>Accessories</h2>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="accessories.html">Accessories</a></li>
+        <li><a href="wear.html">Wear</a></li>
+        <li><a href="bags.html">Bags</a></li>
 
-  <div class="product-grid">
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" />
-      <h3>Golden Bracelet</h3>
-      <p class="price">₹1,999</p>
-      <button onclick="addToCart('Golden Bracelet',1999)">Add to Cart</button>
-    </div>
+        <!-- CART -->
+        <li class="cart-link">
+          <a href="cart.html">
+            Cart
+            <span id="cart-count" class="cart-badge">0</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="product-card">
-      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f" />
-      <h3>Luxury Watch</h3>
-      <p class="price">₹4,999</p>
-      <button onclick="addToCart('Luxury Watch',4999)">Add to Cart</button>
-    </div>
-  </div>
-</section>
+  <!-- ================= ACCESSORIES ================= -->
+  <main class="fade-in">
+    <section class="collections">
+      <h3>Accessories</h3>
 
-<script src="script.js"></script>
+      <div class="product-grid">
+
+        <div class="product-card fade-in-slow">
+          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" alt="Golden Bracelet">
+          <h4>Golden Bracelet</h4>
+          <p class="price">₹1,999</p>
+          <button onclick="addToCart(
+            'Golden Bracelet',
+            1999,
+            'https://images.unsplash.com/photo-1523275335684-37898b6baf30'
+          )">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-card fade-in-slow">
+          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f" alt="Luxury Watch">
+          <h4>Luxury Watch</h4>
+          <p class="price">₹4,999</p>
+          <button onclick="addToCart(
+            'Luxury Watch',
+            4999,
+            'https://images.unsplash.com/photo-1512436991641-6745cdb1723f'
+          )">
+            Add to Cart
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="fade-in">
+    <p>© 2025 Vandora. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
