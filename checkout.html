@@ -32,6 +32,11 @@
 
         <textarea id="address" placeholder="Full Address" required></textarea>
 
+        <!-- NEW STEP 4 -->
+        <input type="text" id="city" placeholder="City" required>
+
+        <input type="text" id="pincode" placeholder="Pincode" required>
+
         <input type="text" id="landmark" placeholder="Landmark (Optional)">
 
         <!-- PAYMENT OPTIONS -->
@@ -40,17 +45,17 @@
         <div class="payment-options">
 
           <label class="payment-option">
-            <input type="radio" name="payment" value="cod" checked>
+            <input type="radio" name="payment" value="Cash on Delivery" checked>
             <span>Cash on Delivery (COD)</span>
           </label>
 
           <label class="payment-option">
-            <input type="radio" name="payment" value="upi">
+            <input type="radio" name="payment" value="UPI">
             <span>UPI (Google Pay / PhonePe / Paytm)</span>
           </label>
 
           <label class="payment-option">
-            <input type="radio" name="payment" value="card">
+            <input type="radio" name="payment" value="Card">
             <span>Credit / Debit Card</span>
           </label>
 
