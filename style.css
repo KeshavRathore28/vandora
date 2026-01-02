@@ -404,6 +404,48 @@ footer {
   height: 80px;
 }
 
+/* ================= PAYMENT OPTIONS (STEP 2 – LUXURY) ================= */
+
+.payment-options {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+  background: #fff;
+}
+
+.payment-option input {
+  accent-color: var(--gold);
+  cursor: pointer;
+}
+
+.payment-option span {
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+.payment-option:hover {
+  background: var(--light-gold);
+  transform: translateY(-2px);
+}
+
+/* active radio look */
+.payment-option input:checked + span {
+  color: var(--dark-maroon);
+  font-weight: 600;
+}
+
 .thankyou {
   text-align: center;
   margin: 100px auto;
