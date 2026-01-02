@@ -25,6 +25,7 @@
 
       <form id="checkout-form">
 
+        <!-- SHIPPING DETAILS -->
         <input type="text" id="name" placeholder="Full Name" required>
 
         <input type="tel" id="phone" placeholder="Phone Number" required>
@@ -32,6 +33,28 @@
         <textarea id="address" placeholder="Full Address" required></textarea>
 
         <input type="text" id="landmark" placeholder="Landmark (Optional)">
+
+        <!-- PAYMENT OPTIONS -->
+        <h3 style="margin-top:25px;">Payment Method</h3>
+
+        <div class="payment-options">
+
+          <label class="payment-option">
+            <input type="radio" name="payment" value="cod" checked>
+            <span>Cash on Delivery (COD)</span>
+          </label>
+
+          <label class="payment-option">
+            <input type="radio" name="payment" value="upi">
+            <span>UPI (Google Pay / PhonePe / Paytm)</span>
+          </label>
+
+          <label class="payment-option">
+            <input type="radio" name="payment" value="card">
+            <span>Credit / Debit Card</span>
+          </label>
+
+        </div>
 
         <button type="submit" class="checkout-btn">
           Place Order
