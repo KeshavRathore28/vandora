@@ -1,22 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Checkout | Vandora</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<section class="checkout">
-  <h2>Checkout</h2>
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">Vandora</h1>
+    </nav>
+  </header>
 
-  <input placeholder="Full Name">
-  <input placeholder="Address">
-  <input placeholder="City">
-  <input placeholder="Phone Number">
+  <!-- CHECKOUT -->
+  <main class="checkout-page fade-in">
+    <section class="checkout-box">
 
-  <button onclick="placeOrder()">Place Order</button>
-</section>
+      <h2>Shipping Details</h2>
 
-<script src="script.js"></script>
+      <form id="checkout-form">
+
+        <input type="text" id="name" placeholder="Full Name" required>
+
+        <input type="tel" id="phone" placeholder="Phone Number" required>
+
+        <textarea id="address" placeholder="Full Address" required></textarea>
+
+        <input type="text" id="landmark" placeholder="Landmark (Optional)">
+
+        <button type="submit" class="checkout-btn">
+          Place Order
+        </button>
+
+      </form>
+
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Vandora. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
