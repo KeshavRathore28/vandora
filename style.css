@@ -704,3 +704,126 @@ footer {
     gap: 18px;
   }
 }
+
+/* ===================================================
+   VANDORA – PREMIUM MOBILE RESPONSIVE (FINAL)
+   =================================================== */
+
+@media (max-width: 768px) {
+
+  /* ===== NAVBAR ===== */
+  .navbar {
+    padding: 14px 20px;
+    flex-direction: row;
+  }
+
+  .logo {
+    font-size: 22px;
+    letter-spacing: 1.5px;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 75%;
+    background: linear-gradient(180deg, #2e0707, #1a0404);
+    flex-direction: column;
+    padding: 80px 30px;
+    gap: 25px;
+    transition: right 0.4s ease;
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    right: 0;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+    color: var(--light-gold);
+  }
+
+  /* ===== HAMBURGER ===== */
+  .menu-toggle {
+    width: 28px;
+    height: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    height: 3px;
+    background: var(--gold);
+    border-radius: 2px;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 70vh;
+    padding: 40px 15px;
+  }
+
+  .hero-content h2 {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+
+  .hero-content p {
+    font-size: 15px;
+  }
+
+  .hero-btn {
+    padding: 12px 30px;
+    font-size: 14px;
+  }
+
+  /* ===== COLLECTIONS ===== */
+  .collection-grid {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .collection-card {
+    font-size: 16px;
+    padding: 18px 30px;
+  }
+
+  /* ===== PRODUCTS ===== */
+  .product-grid {
+    padding: 40px 15px;
+    gap: 20px;
+  }
+
+  .product-card {
+    width: 100%;
+    max-width: 360px;
+    margin: auto;
+  }
+
+  .product-card img {
+    height: 240px;
+  }
+
+  /* ===== CART ===== */
+  .cart-container {
+    margin: 40px 15px;
+    padding: 25px;
+  }
+
+  /* ===== CHECKOUT ===== */
+  .checkout-box,
+  .checkout-container {
+    margin: 40px 15px;
+    padding: 25px;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    font-size: 13px;
+    padding: 20px;
+  }
+}
