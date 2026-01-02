@@ -1,6 +1,6 @@
 /* =====================================================
-   VANDORA – FINAL SCRIPT (PRO LEVEL)
-   Cart + Image + Badge + Fade-in
+   VANDORA – FINAL SCRIPT (PRO + LUXURY)
+   Cart + Image + Badge + Checkout + Fade-in
    ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ================= ADD TO CART ================= */
-  // CALL FORMAT:
+  // FORMAT:
   // addToCart("Product Name", price, "image-url")
 
   window.addToCart = function (name, price, image) {
@@ -24,16 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (existing) {
       existing.qty += 1;
     } else {
-      cart.push({
-        name: name,
-        price: price,
-        image: image,
-        qty: 1
-      });
+      cart.push({ name, price, image, qty: 1 });
     }
 
     saveCart();
-    alert("Added to cart");
+    alert("Product added to cart");
   };
 
   /* ================= CART COUNT BADGE ================= */
@@ -49,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateCartCount();
 
-  /* ================= RENDER CART PAGE ================= */
+  /* ================= CART PAGE RENDER ================= */
 
   const cartItemsEl = document.getElementById("cart-items");
   const totalEl = document.getElementById("total");
@@ -67,19 +62,17 @@ document.addEventListener("DOMContentLoaded", () => {
       div.className = "cart-item";
 
       div.innerHTML = `
-        <div style="display:flex; align-items:center; gap:15px;">
-          <img src="${item.image}" alt="${item.name}"
-               style="width:60px; height:60px; object-fit:cover; border-radius:8px;">
+        <div class="cart-left">
+          <img src="${item.image}" alt="${item.name}">
           <div>
             <strong>${item.name}</strong><br>
             <small>Qty: ${item.qty}</small>
           </div>
         </div>
 
-        <div>
+        <div class="cart-right">
           ₹${item.price * item.qty}
-          <button onclick="removeItem(${index})"
-            style="margin-left:15px; cursor:pointer;">✕</button>
+          <button onclick="removeItem(${index})">✕</button>
         </div>
       `;
 
@@ -95,30 +88,56 @@ document.addEventListener("DOMContentLoaded", () => {
     renderCart();
   };
 
+  renderCart();
+
+  /* ================= PLACE ORDER → CHECKOUT ================= */
+
   window.placeOrder = function () {
-    alert("Order placed successfully!");
-    cart = [];
-    saveCart();
-    renderCart();
+    if (cart.length === 0) {
+      alert("Your cart is empty");
+      return;
+    }
+
+    window.location.href = "checkout.html";
   };
 
-  renderCart();
+  /* ================= CHECKOUT FORM SUBMIT ================= */
+
+  const checkoutForm = document.getElementById("checkout-form");
+
+  if (checkoutForm) {
+    checkoutForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const orderData = {
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        address: document.getElementById("address").value,
+        landmark: document.getElementById("landmark").value,
+        cart: cart
+      };
+
+      localStorage.setItem("orderDetails", JSON.stringify(orderData));
+
+      cart = [];
+      saveCart();
+
+      window.location.href = "thankyou.html";
+    });
+  }
 
   /* ================= LUXURY FADE-IN ================= */
 
   const fadeElements = document.querySelectorAll(".fade-in, .fade-in-slow");
 
   if (fadeElements.length > 0) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.2 });
 
     fadeElements.forEach(el => observer.observe(el));
   }
