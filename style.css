@@ -379,3 +379,32 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+.checkout-container {
+  max-width: 500px;
+  margin: 60px auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 14px;
+  border: 1px solid var(--gold);
+}
+
+.checkout-form input,
+.checkout-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+
+.checkout-form textarea {
+  resize: none;
+  height: 80px;
+}
+
+.thankyou {
+  text-align: center;
+  margin: 100px auto;
+}
