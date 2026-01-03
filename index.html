@@ -28,7 +28,6 @@
         <li><a href="./wear.html">Wear</a></li>
         <li><a href="./bags.html">Bags</a></li>
 
-        <!-- CART WITH BADGE -->
         <li class="cart-link">
           <a href="./cart.html">
             Cart
@@ -49,8 +48,8 @@
         <h2 class="fade-in-slow">Luxury Fashion</h2>
         <p class="fade-in">Timeless Style • Premium Quality</p>
 
-        <a href="./accessories.html" class="hero-btn fade-in">
-          Explore Collection
+        <a href="#order" class="hero-btn fade-in">
+          Place Order
         </a>
       </div>
     </section>
@@ -66,9 +65,7 @@
       </div>
     </section>
 
-    <!-- ================= SAMPLE PRODUCT (ADD TO CART DEMO) ================= -->
-    <!-- Isi pattern pe future me products add karna -->
-
+    <!-- ================= SAMPLE PRODUCT ================= -->
     <section class="product-grid fade-in">
 
       <div class="product-card">
@@ -86,6 +83,20 @@
 
     </section>
 
+    <!-- ================= ORDER FORM ================= -->
+    <section id="order" class="fade-in">
+      <h3>Confirm Your Order</h3>
+
+      <form id="order-form">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="tel" name="phone" placeholder="Mobile Number" required>
+        <textarea name="address" placeholder="Full Address" required></textarea>
+        <input type="text" name="landmark" placeholder="Landmark">
+        <input type="text" name="pincode" placeholder="Pincode" required>
+        <button type="submit">Confirm Order</button>
+      </form>
+    </section>
+
   </main>
 
   <!-- ================= FOOTER ================= -->
@@ -93,7 +104,33 @@
     <p>© 2025 Vandora. All rights reserved.</p>
   </footer>
 
-  <!-- SCRIPT -->
+  <!-- ================= EMAILJS ================= -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <script>
+    // INIT EMAILJS
+    emailjs.init("8jfpbr1av8K6BXPwx");
+
+    // FORM SUBMIT
+    document.getElementById("order-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      emailjs.sendForm(
+        "service_c98rrua",
+        "template_mdv5mxt",
+        this
+      ).then(function() {
+        alert("✅ Order Confirmed! Details sent successfully.");
+        document.getElementById("order-form").reset();
+      }, function(error) {
+        alert("❌ Failed to send order. Try again.");
+        console.log(error);
+      });
+    });
+  </script>
+
+  <!-- EXISTING SCRIPT -->
   <script src="./script.js"></script>
+
 </body>
 </html>
