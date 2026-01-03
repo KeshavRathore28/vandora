@@ -67,7 +67,6 @@
 
     <!-- ================= SAMPLE PRODUCT ================= -->
     <section class="product-grid fade-in">
-
       <div class="product-card">
         <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Luxury Watch">
         <h4>Luxury Watch</h4>
@@ -80,7 +79,6 @@
           Add to Cart
         </button>
       </div>
-
     </section>
 
     <!-- ================= ORDER FORM ================= -->
@@ -108,24 +106,27 @@
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
   <script>
-    // INIT EMAILJS
-    emailjs.init("8jfpbr1av8K6BXPwx");
+    (function () {
+      emailjs.init("8jfpbr1av8K6BXPwx");
+    })();
 
-    // FORM SUBMIT
-    document.getElementById("order-form").addEventListener("submit", function(e) {
+    document.getElementById("order-form").addEventListener("submit", function (e) {
       e.preventDefault();
 
       emailjs.sendForm(
         "service_c98rrua",
         "template_mdv5mxt",
         this
-      ).then(function() {
-        alert("✅ Order Confirmed! Details sent successfully.");
-        document.getElementById("order-form").reset();
-      }, function(error) {
-        alert("❌ Failed to send order. Try again.");
-        console.log(error);
-      });
+      ).then(
+        function () {
+          alert("✅ Order Confirmed! Email sent to contact.vandorahq@gmail.com");
+          document.getElementById("order-form").reset();
+        },
+        function (error) {
+          alert("❌ Email failed. Check console.");
+          console.log("EMAILJS ERROR:", error);
+        }
+      );
     });
   </script>
 
