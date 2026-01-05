@@ -27,14 +27,9 @@
         <li><a href="./accessories.html">Accessories</a></li>
         <li><a href="./wear.html">Wear</a></li>
         <li><a href="./bags.html">Bags</a></li>
-
         <li class="cart-link">
-          <a href="./cart.html">
-            Cart
-            <span id="cart-count" class="cart-badge">0</span>
-          </a>
+          <a href="./cart.html">Cart <span id="cart-count" class="cart-badge">0</span></a>
         </li>
-
         <li><a href="./contact.html">Contact</a></li>
       </ul>
     </nav>
@@ -67,24 +62,31 @@
         <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f" alt="Luxury Watch">
         <h4>Luxury Watch</h4>
         <p class="price">₹4999</p>
-        <button onclick="addToCart(
-          'Luxury Watch',
-          4999,
-          'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f'
-        )">Add to Cart</button>
+        <button>Add to Cart</button>
       </div>
     </section>
 
-    <!-- ================= ORDER FORM ================= -->
+    <!-- ================= ORDER FORM (WEB3FORMS) ================= -->
     <section id="order" class="fade-in">
       <h3>Confirm Your Order</h3>
 
-      <form id="order-form">
+      <form action="https://api.web3forms.com/submit" method="POST">
+        
+        <!-- 🔑 Web3Forms Access Key -->
+        <input type="hidden" name="access_key" value="f267bce9-167d-452c-9145-b4b9380b89ef">
+
+        <!-- 📩 Email Subject -->
+        <input type="hidden" name="subject" value="🛍️ New Vandora Order Received">
+
+        <!-- 📧 Where to receive -->
+        <input type="hidden" name="to_email" value="contact.vandorahq@gmail.com">
+
         <input type="text" name="name" placeholder="Full Name" required>
         <input type="tel" name="phone" placeholder="Mobile Number" required>
         <textarea name="address" placeholder="Full Address" required></textarea>
         <input type="text" name="landmark" placeholder="Landmark">
         <input type="text" name="pincode" placeholder="Pincode" required>
+
         <button type="submit">Confirm Order</button>
       </form>
     </section>
@@ -95,32 +97,6 @@
   <footer class="fade-in">
     <p>© 2025 Vandora. All rights reserved.</p>
   </footer>
-
-  <!-- ================= EMAILJS ================= -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-  <script>
-    emailjs.init("8jfpbr1av8K6BXPwx");
-
-    document.getElementById("order-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      emailjs.sendForm(
-        "service_c98rrua",
-        "template_mdv5mxt",
-        this
-      ).then(
-        function () {
-          alert("✅ Order Confirmed! Email sent successfully.");
-          document.getElementById("order-form").reset();
-        },
-        function (error) {
-          alert("❌ Email failed");
-          console.log(error);
-        }
-      );
-    });
-  </script>
 
   <!-- EXISTING SCRIPT -->
   <script src="./script.js"></script>
