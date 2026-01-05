@@ -42,7 +42,7 @@
 
   <main>
 
-    <!-- ================= HERO SECTION ================= -->
+    <!-- ================= HERO ================= -->
     <section class="hero">
       <div class="hero-content">
         <h2 class="fade-in-slow">Luxury Fashion</h2>
@@ -71,9 +71,7 @@
           'Luxury Watch',
           4999,
           'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f'
-        )">
-          Add to Cart
-        </button>
+        )">Add to Cart</button>
       </div>
     </section>
 
@@ -82,16 +80,11 @@
       <h3>Confirm Your Order</h3>
 
       <form id="order-form">
-
-        <!-- REQUIRED FOR EMAILJS -->
-        <input type="hidden" name="to_email" value="contact.vandorahq@gmail.com">
-
-        <input type="text" name="customer_name" placeholder="Full Name" required>
-        <input type="tel" name="customer_phone" placeholder="Mobile Number" required>
-        <textarea name="customer_address" placeholder="Full Address" required></textarea>
-        <input type="text" name="customer_landmark" placeholder="Landmark">
-        <input type="text" name="customer_pincode" placeholder="Pincode" required>
-
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="tel" name="phone" placeholder="Mobile Number" required>
+        <textarea name="address" placeholder="Full Address" required></textarea>
+        <input type="text" name="landmark" placeholder="Landmark">
+        <input type="text" name="pincode" placeholder="Pincode" required>
         <button type="submit">Confirm Order</button>
       </form>
     </section>
@@ -118,17 +111,18 @@
         this
       ).then(
         function () {
-          alert("✅ Order Confirmed! Email received successfully.");
+          alert("✅ Order Confirmed! Email sent successfully.");
           document.getElementById("order-form").reset();
         },
         function (error) {
-          alert("❌ Email failed. Please try again.");
-          console.log("EMAILJS ERROR:", error);
+          alert("❌ Email failed");
+          console.log(error);
         }
       );
     });
   </script>
 
+  <!-- EXISTING SCRIPT -->
   <script src="./script.js"></script>
 
 </body>
