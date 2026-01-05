@@ -47,17 +47,13 @@
       <div class="hero-content">
         <h2 class="fade-in-slow">Luxury Fashion</h2>
         <p class="fade-in">Timeless Style • Premium Quality</p>
-
-        <a href="#order" class="hero-btn fade-in">
-          Place Order
-        </a>
+        <a href="#order" class="hero-btn fade-in">Place Order</a>
       </div>
     </section>
 
     <!-- ================= COLLECTIONS ================= -->
     <section class="collections fade-in">
       <h3>Our Collections</h3>
-
       <div class="collection-grid">
         <a href="./accessories.html" class="collection-card"><span>Accessories</span></a>
         <a href="./wear.html" class="collection-card"><span>Wear</span></a>
@@ -86,11 +82,16 @@
       <h3>Confirm Your Order</h3>
 
       <form id="order-form">
-        <input type="text" name="name" placeholder="Full Name" required>
-        <input type="tel" name="phone" placeholder="Mobile Number" required>
-        <textarea name="address" placeholder="Full Address" required></textarea>
-        <input type="text" name="landmark" placeholder="Landmark">
-        <input type="text" name="pincode" placeholder="Pincode" required>
+
+        <!-- REQUIRED FOR EMAILJS -->
+        <input type="hidden" name="to_email" value="contact.vandorahq@gmail.com">
+
+        <input type="text" name="customer_name" placeholder="Full Name" required>
+        <input type="tel" name="customer_phone" placeholder="Mobile Number" required>
+        <textarea name="customer_address" placeholder="Full Address" required></textarea>
+        <input type="text" name="customer_landmark" placeholder="Landmark">
+        <input type="text" name="customer_pincode" placeholder="Pincode" required>
+
         <button type="submit">Confirm Order</button>
       </form>
     </section>
@@ -106,9 +107,7 @@
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
   <script>
-    (function () {
-      emailjs.init("8jfpbr1av8K6BXPwx");
-    })();
+    emailjs.init("8jfpbr1av8K6BXPwx");
 
     document.getElementById("order-form").addEventListener("submit", function (e) {
       e.preventDefault();
@@ -119,18 +118,17 @@
         this
       ).then(
         function () {
-          alert("✅ Order Confirmed! Email sent to contact.vandorahq@gmail.com");
+          alert("✅ Order Confirmed! Email received successfully.");
           document.getElementById("order-form").reset();
         },
         function (error) {
-          alert("❌ Email failed. Check console.");
+          alert("❌ Email failed. Please try again.");
           console.log("EMAILJS ERROR:", error);
         }
       );
     });
   </script>
 
-  <!-- EXISTING SCRIPT -->
   <script src="./script.js"></script>
 
 </body>
